@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=Noto+Sans+Telugu:wght@300;400;500&display=swap');
+
+/* ============================================
+   CSS VARIABLES — HERITAGE ESTATE PALETTE
+   ============================================ */
+:root {
+  --forest:    #1c2b1a;
+  --forest-mid: #2a3d28;
+  --walnut:    #6b3a2a;
+  --cream:     #f5f0e8;
+  --cream-dark:#ede5d6;
+  --gold:      #c9a84c;
+  --gold-light:#e2c87a;
+  --bark:      #8b5e3c;
+  --sage:      #6b7c5e;
+  --white:     #fdfaf4;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Jost', sans-serif;
+  --font-telugu: 'Noto Sans Telugu', sans-serif;
+
+  --shadow-sm: 0 2px 8px rgba(28,43,26,0.08);
+  --shadow-md: 0 6px 24px rgba(28,43,26,0.12);
+  --shadow-lg: 0 16px 48px rgba(28,43,26,0.16);
+
+  --radius: 4px;
+  --radius-lg: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--forest);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.telugu { font-family: var(--font-telugu); }
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+ul { list-style: none; }
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; }
+
+.display-xl  { font-size: clamp(3rem, 6vw, 7rem); font-style: italic; font-weight: 400; }
+.display-lg  { font-size: clamp(2rem, 4vw, 4.5rem); font-style: italic; font-weight: 400; }
+.display-md  { font-size: clamp(1.5rem, 3vw, 2.8rem); font-weight: 600; }
+.eyebrow     { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; font-family: var(--font-body); }
+.body-lg     { font-size: 1.05rem; line-height: 1.75; }
+.body-sm     { font-size: 0.85rem; color: var(--sage); }
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.container   { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.section     { padding: 5rem 0; }
+.section-sm  { padding: 3rem 0; }
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: var(--transition);
+  border-radius: var(--radius);
+}
+
+.btn-primary {
+  background: var(--forest);
+  color: var(--cream);
+  border: 1.5px solid var(--forest);
+}
+.btn-primary:hover {
+  background: var(--forest-mid);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--forest);
+  border: 1.5px solid var(--gold);
+}
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--forest);
+  border: 1.5px solid var(--forest);
+}
+.btn-outline:hover {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--forest);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gold);
+  border-radius: 0;
+  letter-spacing: 0.08em;
+}
+.btn-ghost:hover { color: var(--gold); }
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 1rem 0;
+}
+
+/* ============================================
+   BADGE / TAG
+   ============================================ */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 100px;
+  background: var(--cream-dark);
+  color: var(--sage);
+}
+.tag-green { background: rgba(28,43,26,0.1); color: var(--forest); }
+.tag-gold  { background: rgba(201,168,76,0.15); color: var(--walnut); }
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 3px; }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-in { animation: fadeInUp 0.6s ease forwards; }
+.animate-fade { animation: fadeIn 0.4s ease forwards; }
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+@media (max-width: 768px) {
+  .container { padding: 0 1.25rem; }
+  .section   { padding: 3rem 0; }
+  .hide-mobile { display: none !important; }
+}
+
+/* ============================================
+   FORM GROUPS (used globally)
+   ============================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form-group label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  color: var(--forest);
+  background: var(--cream);
+  outline: none;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--forest);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(28,43,26,0.06);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
